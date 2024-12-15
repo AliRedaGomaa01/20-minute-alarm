@@ -1,18 +1,15 @@
 const button = document.getElementById("start");
 const timerParagraph = document.getElementById("timer");
 let timer;
+let currentMinute;
+let currentSecond;
 
 button.addEventListener("click", () => {
   clearInterval(timer);
-  let currentMinute = new Date().getMinutes();
-  let currentSecond = new Date().getSeconds();
-
+  
   timer = setInterval(() => {
-    currentSecond+=1;
-    if (currentSecond === 60) {
-      currentMinute  === 59 ? currentMinute = 0 : currentMinute++;
-      currentSecond = 0;
-    }
+    currentMinute = new Date().getMinutes();
+    currentSecond = new Date().getSeconds();
 
     timerParagraph.innerText = "HH:" + (currentMinute > 9 ? currentMinute : "0" + currentMinute) + ":" + (currentSecond > 9 ? currentSecond : "0" + currentSecond);
     if (currentMinute%20 === 0 && currentSecond > 0 && currentSecond <= 30) {
