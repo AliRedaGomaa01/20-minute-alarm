@@ -10,7 +10,7 @@ button.addEventListener("click", () => {
   timer = setInterval(() => {
     currentSecond+=1;
     if (currentSecond === 60) {
-      currentMinute+=1;
+      currentMinute  === 59 ? currentMinute = 0 : currentMinute++;
       currentSecond = 0;
     }
 
