@@ -14,7 +14,7 @@ button.addEventListener("click", () => {
       currentSecond = 0;
     }
 
-    timerParagraph.innerText = "HH:" + (currentMinute > 10 ? currentMinute : "0" + currentMinute) + ":" + (currentSecond > 10 ? currentSecond : "0" + currentSecond);
+    timerParagraph.innerText = "HH:" + (currentMinute > 9 ? currentMinute : "0" + currentMinute) + ":" + (currentSecond > 9 ? currentSecond : "0" + currentSecond);
     if (currentMinute%20 === 0 && currentSecond > 0 && currentSecond <= 30) {
       if (currentMinute === 0) {
         playSound("sound2.mp3");
