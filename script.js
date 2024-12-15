@@ -15,14 +15,17 @@ button.addEventListener("click", () => {
     }
 
     timerParagraph.innerText = "HH:" + (currentMinute > 10 ? currentMinute : "0" + currentMinute) + ":" + (currentSecond > 10 ? currentSecond : "0" + currentSecond);
-
     if (currentMinute%20 === 0 && currentSecond > 0 && currentSecond <= 30) {
-      playSound();
+      if (currentMinute === 0) {
+        playSound("sound2.mp3");
+      } else {
+        playSound("sound.mp3");
+      }
     }
   }, 1000);
 })
 
-function playSound() {
-  const audio = new Audio("sound.mp3");
+function playSound(file) {
+  const audio = new Audio(file);
   audio.play().catch((error) => console.log("Sound playback error:", error));
 }
