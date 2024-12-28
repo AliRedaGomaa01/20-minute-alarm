@@ -29,7 +29,7 @@ button.addEventListener("click", () => {
       (currentMinute > 9 ? currentMinute : "0" + currentMinute) +
       ":" +
       (currentSecond > 9 ? currentSecond : "0" + currentSecond);
-    if (currentMinute % 20 === 0 && currentSecond > 0 && currentSecond <= 5) {
+    if ( ( currentMinute === 10 || currentMinute === 30 || currentMinute === 50 )  && currentSecond > 0 && currentSecond <= 5) {
       // if (currentMinute === 0) {
         playSound("sound2.mp3");
       // } else {
