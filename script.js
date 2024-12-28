@@ -1,5 +1,6 @@
 const button = document.getElementById("start");
 const timerParagraph = document.getElementById("timer");
+const remainingParagraph = document.getElementById("remaining");
 let timer;
 let currentMinute;
 let currentSecond;
@@ -20,7 +21,7 @@ button.addEventListener("click", () => {
 
   clearInterval(timer);
 
-  timer = setInterval(() => {
+  timer = setInterval(async () => {
     currentMinute = new Date().getMinutes();
     currentSecond = new Date().getSeconds();
 
@@ -29,12 +30,22 @@ button.addEventListener("click", () => {
       (currentMinute > 9 ? currentMinute : "0" + currentMinute) +
       ":" +
       (currentSecond > 9 ? currentSecond : "0" + currentSecond);
-    if ( ( currentMinute === 10 || currentMinute === 30 || currentMinute === 50 )  && currentSecond > 0 && currentSecond <= 5) {
-      // if (currentMinute === 0) {
-        playSound("sound2.mp3");
-      // } else {
-      //   playSound("sound.mp3");
-      // }
+
+    if (currentSecond === 0) {
+      if (currentMinute >= 30 && currentMinute < 50){
+        remainingParagraph.innerText = `next alarm in: HH:50:00`;
+      } else if (currentMinute >= 10 && currentMinute < 30){
+        remainingParagraph.innerText = `next alarm in: HH:30:00`;
+      } else {
+        remainingParagraph.innerText = `next alarm in: HH:10:00`;
+      }
+    }
+    if (
+      (currentMinute === 10 || currentMinute === 30 || currentMinute === 50) &&
+      currentSecond > 0 &&
+      currentSecond <= 5
+    ) {
+      playSound("sound2.mp3");
     }
   }, 1000);
 });
