@@ -14,7 +14,7 @@
     </h1>
     
     <p class="text-lg mb-6 text-gray-600 animate-fade-in">
-      This page will play a sound every 20 minutes. <br> e.g. HH:00, HH:20, HH:40
+      This page will play a sound every 20 minutes. <br> e.g. HH:10, HH:30, HH:50
     </p>
     
     <button 
@@ -23,9 +23,12 @@
       Start Timer
     </button>
     
-    <p id="timer" class="mt-4 text-2xl font-bold text-gray-800 animate-bounce"></p>
-
-    <p id="remaining" class="mt-4 text-2xl font-bold text-gray-800"></p>
+    <div class="my-5 space-y-3">
+      <p id="currentSpan" style="display: none;">current time :</p>
+      <p id="timer" class="mt-4 text-2xl font-bold text-gray-800 animate-bounce"></p>
+      <p id="nextSpan" style="display: none;">next sound in :</p>
+      <p id="remaining" class="mt-4 text-2xl font-bold text-gray-800 animate-bounce"></p>
+    </div>
   </div>
   <script src="script.js" defer></script>
 </body>
