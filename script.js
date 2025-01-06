@@ -56,13 +56,13 @@ button.addEventListener("click", () => {
     if (
       (currentMinute === 10 || currentMinute === 50) &&
       currentSecond > 0 &&
-      currentSecond <= 3
+      currentSecond <= 6
     ) {
       playSound("sound2.mp3");
     } else if (
       currentMinute === 30 &&
       currentSecond > 0 &&
-      currentSecond <= 10
+      currentSecond <= 12
     ) {
       playSound("sound2.mp3");
     }
